@@ -1,0 +1,44 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}
+html{font-size:62.5%}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+body{line-height:1}
+ol,ul{list-style:none}
+h1,h2,h3,h4,h5,h6{color:#181818;font-weight:bold;line-height:1.25}
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{font-weight:inherit}
+h1{font-size:46px;font-size:4.6rem;margin-bottom:12px}
+h2{font-size:35px;font-size:3.5rem;margin-bottom:9px}
+h3{font-size:28px;font-size:2.8rem;margin-bottom:9px}
+h4{font-size:21px;font-size:2.1rem;margin-bottom:3px}
+h5{font-size:18px;font-size:1.8rem;font-weight:normal;margin-bottom:3px}
+h6{font-size:15px;font-size:1.5rem;font-weight:normal}
+.container{padding:0 20px}
+.content{margin-top:2em;margin-bottom:2em}
+#page-title,.page-title,.section-title,.sub-title{font-weight:300;font-family:"Merriweather",helvetica,arial,sans-serif}
+#page-title,.page-title{font-size:2.5em;text-transform:capitalize;text-shadow:1px 1px 0 #fff;-moz-text-shadow:1px 1px 0 #fff;-webkit-text-shadow:1px 1px 0 #fff}
+h1.page-title,#learned-popup h1.page-title,#learned-error h1.page-title{margin-bottom:.5em}
+.row{width:100%;max-width:980px;min-width:727px;margin:0 auto}
+.row .row{min-width:0}
+.column,.columns{margin-left:4.4%;float:left;min-height:1px;position:relative}
+.column:first-child,.columns:first-child{margin-left:0}
+.row .one.columns{width:4.3%}
+.row .two.columns{width:13%}
+.row .three.columns{width:21.68%}
+.row .four.columns{width:30.37%}
+.row .five.columns{width:39.1%}
+.row .six.columns{width:47.8%}
+.row .seven.columns{width:56.5%}
+.row .eight.columns{width:65.2%}
+.row .nine.columns{width:73.9%}
+.row .ten.columns{width:82.6%}
+.row .eleven.columns{width:91.3%}
+.row .twelve.columns{width:100%}
+.content-container{padding:5%;background:#fff;border:1px #D9D9D9 solid;box-shadow:3px 3px 5px #e6e6e6;-moz-box-shadow:3px 3px 5px #e6e6e6;-webkit-box-shadow:3px 3px 5px #e6e6e6}
+clearfix:after,.row:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;overflow:hidden}
+* html .clearfix,* html .row{zoom:1}
+form fieldset{padding:9px 9px 2px 9px;border:solid 1px #ddd;margin:18px 0}
+form label{display:block;font-size:13px;line-height:18px;cursor:pointer;margin-bottom:9px}
+input.input-text,textarea{border-right:1px solid #bbb;border-bottom:1px solid #bbb}
+input.input-text,textarea,select{display:block;margin-bottom:9px}
+#user-settings .settings label,#user-settings .settings input,#user-settings .settings .tips{margin-right:10px}
+#user-settings .settings label,#user-settings .settings .tips{margin-top:8px}
+#user-settings .settings label{float:left;width:150px;font-size:1.1em;line-height:1.6em;margin-bottom:0;text-shadow:0 2px 0px #fff;-moz-text-shadow:0 2px 0px #fff;-webkit-text-shadow:0 2px 0px #fff}
