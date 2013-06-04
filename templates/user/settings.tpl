@@ -51,7 +51,8 @@
 							</div>
 							<div class="field email">
 								<label for="user_email">邮箱</label>
-								<input id="user_email" name="user_email" value="{$user.email}" size="30" type="text">
+								{$user.email}
+								<input id="user_email" name="user_email" value="{$user.email}" size="30" type="hide">
 								<a href="#">修改密码</a>
 							</div>
 							<div class="field zipcode">
@@ -82,9 +83,10 @@
 							</div>
 							<div class="field">
 								<label>空闲时间</label>
-								<table id="availability">
+								<table id="user_available_time">
 									<thead>
 										<tr>
+											<th class="time">时间</th>
 											<th>周日</th>
 											<th>周一</th>
 											<th>周二</th>
@@ -96,27 +98,52 @@
 									</thead>
 									<tbody>
 										<tr>
+											<td class="time"><em>凌晨(00:00-06:00)</em></td>
+											{for $i = 0 to 6}
 											<td>
-											<input style="width:14px;height:14px;" type="checkbox" id="user_morning_sun" name="user[morning][sun]" />
+											<input type="checkbox" class="available_time_check_box" value="{$user.available_time[$i]}"
+												{if $user.available_time[$i] == 1}
+													checked
+												{/if}
+											/>
 											</td>
+											{/for}
+										</tr>
+										<tr>
+											<td class="time"><em>下午(12:00-18:00)</em></td>
+											{for $i = 7 to 13}
 											<td>
-											<input style="width:14px;height:14px;" type="checkbox" id="user_morning_mon" name="user[morning][mon]" />
+											<input type="checkbox" class="available_time_check_box" value="{$user.available_time[$i]}"
+												{if $user.available_time[$i] == 1}
+													checked
+												{/if}
+											/>
 											</td>
+											{/for}
+										</tr>
+										<tr>
+											<td class="time"><em>晚上(18:00-24:00)</em></td>
+											{for $i = 14 to 20}
 											<td>
-											<input style="width:14px;height:14px;" type="checkbox" id="user_morning_tue" name="user[morning][tue]" />
+											<input type="checkbox" class="available_time_check_box" value="{$user.available_time[$i]}"
+												{if $user.available_time[$i] == 1}
+													checked
+												{/if}
+											/>
 											</td>
+											{/for}
+										</tr>
+										<tr>
+											<td class="time"><em>上午(06:00-12:00)</em></td>
+											{for $i = 21 to 27}
 											<td>
-											<input style="width:14px;height:14px;" type="checkbox" id="user_morning_wed" name="user[morning][wed]" />
+											<input type="checkbox" class="available_time_check_box" value="{$user.available_time[$i]}"
+												{if $user.available_time[$i] == 1}
+													checked
+												{/if}
+											/>
 											</td>
-											<td>
-											<input style="width:14px;height:14px;" type="checkbox" id="user_morning_thu" name="user[morning][thu]" />
-											</td>
-											<td>
-											<input style="width:14px;height:14px;" type="checkbox" id="user_morning_fri" name="user[morning][fri]" />
-											</td>
-											<td>
-											<input style="width:14px;height:14px;" type="checkbox" id="user_morning_sat" name="user[morning][sat]" />
-											</td>
+											{/for}
 										</tr>
 									</tbody>
 								</table>
@@ -195,6 +222,42 @@
                     },
                 });
             });
+			$(".available_time_check_box").change(function() {
+				if ($(this).val() == 1) {
+					$(this).val("0");
+				} else {
+					$(this).val("1");
+				}
+			});
+			$("#update_available_time_button").click(function() {
+				var available_time_array = [];
+				$(".available_time_check_box").each(function(index, element) {
+					available_time_array.push($(this).val());
+				});
+				alert(JSON.stringify(available_time_array));
+				var available_time_json = JSON.stringify(available_time_array);
+				$.ajax({
+					type:"POST",
+					url :"/user/settings.php",
+					data:   {
+						'field_name'  : "user_available_time",
+						'field_value' : available_time_json,
+						'user_email'  : $('#user_email').val(),
+					},
+					dataType: "json",
+					timeout:120000, // 2min
+					success: function (obj) {
+						if(obj.errCode == 0 ){
+							toast("更新成功");
+						}else{
+							toast_err("出错["+ obj.errCode +"]: " + obj.errMsg);
+						}
+					},
+					error: function () {
+						toast_err("提交失败");
+					},
+				});
+			});
         });
         </script>
     </body>
